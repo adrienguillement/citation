@@ -8,8 +8,7 @@ if(isset($_POST['search'])) :
 
     $arrayWords = explode( " ",$search);    
 
-    echo "notre tableau de mots:";
-    var_dump($arrayWords);
+    //var_dump($arrayWords);
     
     $arrayIdCitation = [];
 
@@ -34,8 +33,7 @@ if(isset($_POST['search'])) :
         }
         $st=null;
 
-        echo "tableau recherche citation.texte ". $value .":";
-        var_dump($arrayIdCitation1);
+        //var_dump($arrayIdCitation1);
 
         //search by auteurs.nom / auteurs.prenom
         $arrayIdCitation2 = [];
@@ -54,8 +52,7 @@ if(isset($_POST['search'])) :
             array_push($arrayIdCitation2, $ligne['idcit']);
         }
         $st=null;
-        echo "tableau recherche pour auteur.nom et auteur.prenom ". $value .":";
-        var_dump($arrayIdCitation2);                        
+        //var_dump($arrayIdCitation2);
 
         //Merge array
         foreach($arrayIdCitation1 as $value){
@@ -70,33 +67,18 @@ if(isset($_POST['search'])) :
             }                
         }
 
-        echo "tableau final: ";
-        var_dump($arrayIdCitation);
+        //var_dump($arrayIdCitation);
     }
 
-    //Start the complete request        
+    //Start the complete request
+    $in  = str_repeat('?,', count($arrayIdCitation) - 1) . '?';
     $sql_request="SELECT * FROM citation
                         JOIN auteurs ON citation.idauteur=auteurs.idauteur 
-                        WHERE citation.idcit IN (?)";
+                        WHERE citation.idcit IN ($in)";
     $st = $db->prepare($sql_request);
 
-    $idFind = null;
-    //Format the bind value parameter (LIKE value1, value2...)    
-    foreach($arrayIdCitation as $key => $value){
-        if($key != (count($arrayIdCitation)-1)){
-            $idFind .= "$value,";
-        }
-        else{
-            $idFind .= "$value";
-        }        
-    }    
 
-    $st->bindValue(1, $idFind, PDO::PARAM_STR);
-    $st->execute();
-
-    echo "resultat final";
-    var_dump($st);
-    echo $idFind;
+    $st->execute($arrayIdCitation);
 
     $citations = [];    
     
@@ -106,9 +88,7 @@ if(isset($_POST['search'])) :
                         new Auteurs($ligne['idauteur'], $ligne['nom'], $ligne['prenom'], $ligne['siecle'])];
     }
     $st=null;
-
-    echo "tableau citations";
-    var_dump($citations);
+    //var_dump($citations);
 
 ?>
 
