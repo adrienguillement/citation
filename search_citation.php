@@ -70,24 +70,30 @@ if(isset($_POST['search'])) :
         //var_dump($arrayIdCitation);
     }
 
+    $citations = [];
+
     //Start the complete request
-    $in  = str_repeat('?,', count($arrayIdCitation) - 1) . '?';
-    $sql_request="SELECT * FROM citation
-                        JOIN auteurs ON citation.idauteur=auteurs.idauteur 
-                        WHERE citation.idcit IN ($in)";
-    $st = $db->prepare($sql_request);
+    if(!empty($arrayIdCitation)){
 
-
-    $st->execute($arrayIdCitation);
-
-    $citations = [];    
     
-    //Save data in array
-    while($ligne = $st->fetch()){      
-        $citations[] = [new Citation($ligne['idauteur'], $ligne['texte'], $ligne['idcit']),
-                        new Auteurs($ligne['idauteur'], $ligne['nom'], $ligne['prenom'], $ligne['siecle'])];
+        $in  = str_repeat('?,', count($arrayIdCitation) - 1) . '?';
+        $sql_request="SELECT * FROM citation
+                            JOIN auteurs ON citation.idauteur=auteurs.idauteur 
+                            WHERE citation.idcit IN ($in)";
+        $st = $db->prepare($sql_request);
+
+
+        $st->execute($arrayIdCitation);
+
+        $citations = [];    
+        
+        //Save data in array
+        while($ligne = $st->fetch()){      
+            $citations[] = [new Citation($ligne['idauteur'], $ligne['texte'], $ligne['idcit']),
+                            new Auteurs($ligne['idauteur'], $ligne['nom'], $ligne['prenom'], $ligne['siecle'])];
+        }
+        $st=null;
     }
-    $st=null;
     //var_dump($citations);
 
 ?>
