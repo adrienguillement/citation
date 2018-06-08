@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2018 at 09:37 AM
+-- Generation Time: Jun 08, 2018 at 02:37 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -32,16 +32,18 @@ CREATE TABLE IF NOT EXISTS `auteurs` (
   `prenom` varchar(30) DEFAULT '',
   `siecle` tinyint(2) DEFAULT NULL,
   `image` varchar(255) NOT NULL,
+  `audio` varchar(255) NOT NULL,
   PRIMARY KEY (`idauteur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `auteurs`
 --
 
-INSERT INTO `auteurs` (`idauteur`, `nom`, `prenom`, `siecle`, `image`) VALUES
-(1, 'Van Damme', 'Jean-Claude', 17, 'oui.jpg'),
-(2, 'Norris', 'Chuck', 20, 'chuck-norris.jpg');
+INSERT INTO `auteurs` (`idauteur`, `nom`, `prenom`, `siecle`, `image`, `audio`) VALUES
+(1, 'Van Damme', 'Jean-Claude', 17, 'jean-claude-van-damme.jpg', 'the_epic_split.mp3'),
+(2, 'Norris', 'Chuck', 20, 'chuck-norris.jpg', 'walker_texas_ranger.mp3'),
+(15, 'Adrien', 'Guillement', 16, '', '');
 
 -- --------------------------------------------------------
 
@@ -55,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `citation` (
   `idauteur` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idcit`),
   KEY `FK_citation_auteur` (`idauteur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
 
 --
 -- Dumping data for table `citation`
@@ -95,7 +97,8 @@ INSERT INTO `citation` (`idcit`, `texte`, `idauteur`) VALUES
 (32, 'Un jour, Chuck Norris a lancé un javelot pour s''amuser. Amstrong l''a retrouvé en 1969.\r\n', 2),
 (33, 'Chuck Norris a déjà vu Derrick faire une cascade.\r\n', 2),
 (34, 'Chuck Norris peut cultiver des champs magnétiques.\r\n', 2),
-(35, 'Chuck Norris ne prend pas l''avion... Il n''a pas peur, mais c''est plus rapide à pied.\r\n', 2);
+(35, 'Chuck Norris ne prend pas l''avion... Il n''a pas peur, mais c''est plus rapide à pied.\r\n', 2),
+(71, 'ghtrhtrhrt', 15);
 
 --
 -- Constraints for dumped tables
