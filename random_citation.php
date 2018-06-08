@@ -22,7 +22,15 @@ $st=null;
                 <p><?php echo $auteur->getNom()." ".$auteur->getPrenom(); ?></p>
                 </div>
                 <div class="col-2 d-none d-sm-block">
-                    <img src="assets/img/<?= $auteur->getImage(); ?>" class="img-fluid rounded">
+                    <?php
+                    if($auteur->getImage()){
+                        ?><img src="assets/img/<?= $auteur->getImage(); ?>" class="img-fluid rounded"><?php
+                    } else{
+                        $md5_img = md5($auteur->getNom()." ".$auteur->getPrenom());
+                        ?><img src="functions/identicon.php?size=48&hash=<?= $md5_img ?>" style="background-color: white"/><?php
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>
