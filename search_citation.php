@@ -72,7 +72,6 @@ if(isset($_POST['search'])) :
 
     $citations = [];
 
-<<<<<<< HEAD
     //Start the complete request
     if(!empty($arrayIdCitation)){
 
@@ -91,43 +90,22 @@ if(isset($_POST['search'])) :
         //Save data in array
         while($ligne = $st->fetch()){      
             $citations[] = [new Citation($ligne['idauteur'], $ligne['texte'], $ligne['idcit']),
-                            new Auteurs($ligne['idauteur'], $ligne['nom'], $ligne['prenom'], $ligne['siecle'])];
+                            new Auteurs($ligne['idauteur'], $ligne['nom'], $ligne['prenom'], $ligne['audio'], $ligne['siecle'])];
         }
         $st=null;
-    }
-    //var_dump($citations);
-=======
-    while($ligne = $st->fetch()){
-        $citations[] = [new Citation($ligne['idauteur'], $ligne['texte'], $ligne['idcit']),
-                        new Auteurs($ligne['siecle'], $ligne['prenom'], $ligne['nom'], $ligne['image'], $ligne['idauteur'])];
->>>>>>> master
-
     }
 ?>
 
 <div class="container">
-<<<<<<< HEAD
-            <?php foreach($citations as $each): ?>
-                <div style="margin:10px" class="card" style="width: 30rem;">
-                    <div class="card-body">
-                    <h5 class="card-title"><?= $each[0]->getTexte(); ?></h5>
-                    <p class="card-text"><?= $each[1]->getNom()." ".$each[1]->getPrenom() ?></p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-
-            <?php endforeach; ?>
-=======
     <?php foreach($citations as $each): ?>
         <div style="margin:10px" class="card" style="width: 30rem;">
             <div class="card-body">
             <h5 class="card-title"><?= $each[0]->getTexte(); ?></h5>
             <?php
-            $lien = "author.php/?prenom=".$each[1]->getPrenom()."&nom=".$each[1]->getNom();
+            $lien = "author.php/?prenom=".$each[1]->getNom()."&nom=".$each[1]->getPrenom();
             ?>
-            <a href="<?= $lien ?>" class="btn btn-primary"><?= $each[1]->getPrenom()." ".$each[1]->getNom(); ?></a>
+            <a href="<?= $lien ?>" class="btn btn-primary"><?= $each[1]->getNom()." ".$each[1]->getPrenom(); ?></a>
             </div>
->>>>>>> master
         </div>
     <?php endforeach; ?>
 </div>

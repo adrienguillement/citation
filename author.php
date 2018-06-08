@@ -14,8 +14,8 @@ $st->bindParam(1, $_GET['nom']);
 $st->bindParam(2, $_GET['prenom']);
 $st->execute();
 while($ligne = $st->fetch()){
-    $auteur = new Auteurs($ligne['siecle'], $ligne['prenom'], $ligne['nom'], $ligne['image'], $ligne['audio'], $ligne['idauteur']);
-    var_dump($auteur);
+    $auteur = new auteurs($ligne['siecle'], $ligne['prenom'], $ligne['nom'], $ligne['image'], $ligne['audio'], $ligne['idauteur']);
+
 }
 $st=null;
 
