@@ -38,3 +38,19 @@ div.card {
 .white-navbar {
     color: #FFFFFF !important;
 }
+
+.btn-primary {
+    background-color: #F6911D;
+    border-color: #F6911D;
+}
+
+.button_search  {
+    color: white;
+    border-color: white;
+}
+
+.button_search:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+}

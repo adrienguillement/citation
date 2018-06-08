@@ -17,7 +17,7 @@ $st=null;
     <div class="row">
         <div class="col-12 ">
             <div class="row Bandeau">
-                <div class="col-12 col-sm-10">
+                <div class="col-12 col-sm-9">
                 <h5><?php echo $citation->getTexte(); ?></h5>
                 <p><?php echo $auteur->getNom()." ".$auteur->getPrenom(); ?></p>
                 <?php
@@ -33,7 +33,7 @@ $st=null;
 
                 <?php endif; ?>
                 </div>
-                <div class="col-2 d-none d-sm-block">
+                <div class="col-2 d-none d-sm-block mr-1">
                     <?php
                     if($auteur->getImage()){
                         ?><img src="assets/img/<?= $auteur->getImage(); ?>" class="img-fluid rounded"><?php

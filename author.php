@@ -34,5 +34,4 @@ $mp3 = "../assets/audio/".$auteur->getAudio();
     <source src="<?= $mp3; ?>". type="audio/mpeg" />
     Votre navigateur ne supporte pas l'audio.
 </audio>
-
 <?php endif; ?>
