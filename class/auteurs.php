@@ -1,6 +1,6 @@
 <?php
 
-class auteurs
+class Auteurs
 {
 
     // Attributes
@@ -8,21 +8,26 @@ class auteurs
     private $nom;
     private $prenom;
     private $siecle;
+    private $image;
 
     /**
-     * auteurs constructor.
+     * Auteurs constructor.
      * @param $idauteur
-     * @param $siecle
-     * @param $prenom
      * @param $nom
+     * @param $prenom
+     * @param $siecle
+     * @param $image
      */
-    public function __construct($siecle, $prenom, $nom, $idauteur="")
+    public function __construct($siecle, $prenom, $nom, $image, $idauteur="")
     {
-        ($idauteur != "") ?: $this->$idauteur = $idauteur;
-        $this->siecle = $siecle;
-        $this->prenom = $prenom;
+        ($idauteur != "") ?: $this->idauteur = $idauteur;
         $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->siecle = $siecle;
+        $this->image = $image;
     }
+
+
 
     /**
      * @return mixed
@@ -88,5 +93,19 @@ class auteurs
         $this->nom = $nom;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
 
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
 }

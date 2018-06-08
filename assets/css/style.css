@@ -20,3 +20,12 @@ div.card {
     text-align: center;
     vertical-align: center;
 }
+
+.bandeau-container {
+    margin: 0;
+    width: 100%;
+}
+
+.container {
+    max-width: 100%;
+}
