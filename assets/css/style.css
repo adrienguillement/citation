@@ -11,7 +11,7 @@ div.card {
 }
 
 .Bandeau {
-    background-color: #FBB033; 
+    background-color: #FBB033;
     padding: 5% 0;
 }
 
@@ -24,4 +24,17 @@ div.card {
 .bandeau-container {
     margin: 0;
     width: 100%;
+    background-color: #FB8C00;
+}
+
+.container {
+    max-width: 100%;
+}
+
+.bg-company-red {
+    background-color: #FB8C00;
+}
+
+.white-navbar {
+    color: #FFFFFF !important;
 }

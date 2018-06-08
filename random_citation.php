@@ -8,7 +8,7 @@ $st = $db->prepare($sql_select_random);
 $st->execute();
 while($ligne = $st->fetch()){
     $citation = new Citation($ligne['idauteur'], $ligne['texte'], $ligne['idcit']);
-    $auteur = new Auteurs($ligne['idauteur'], $ligne['nom'], $ligne['prenom'], $ligne['image'], $ligne['siecle']);
+    $auteur = new Auteurs($ligne['idauteur'], $ligne['nom'], $ligne['prenom'], $ligne['image'], $ligne['audio'], $ligne['siecle']);
 }
 $st=null;
 ?>
@@ -20,6 +20,18 @@ $st=null;
                 <div class="col-12 col-sm-10">
                 <h5><?php echo $citation->getTexte(); ?></h5>
                 <p><?php echo $auteur->getNom()." ".$auteur->getPrenom(); ?></p>
+                <?php
+                if($auteur->getAudio()):
+                    $mp3 = "assets/audio/".$auteur->getAudio();
+                    ?>
+                    <audio
+                        id="t-rex-roar"
+                        autoplay>
+                        <source src="<?= $mp3; ?>" type="audio/mpeg" />
+                        Votre navigateur ne supporte pas l'audio.
+                    </audio>
+
+                <?php endif; ?>
                 </div>
                 <div class="col-2 d-none d-sm-block">
                     <?php
@@ -30,7 +42,6 @@ $st=null;
                         ?><img src="functions/identicon.php?size=48&hash=<?= $md5_img ?>" style="background-color: white"/><?php
                     }
                     ?>
-
                 </div>
             </div>
         </div>

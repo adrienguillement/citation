@@ -25,8 +25,10 @@ if(isset($_POST['search'])) :
         <div style="margin:10px" class="card" style="width: 30rem;">
             <div class="card-body">
             <h5 class="card-title"><?= $each[0]->getTexte(); ?></h5>
-            <p class="card-text"><?= $each[1]->getNom()." ".$each[1]->getPrenom() ?></p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <?php
+            $lien = "author.php/?prenom=".$each[1]->getPrenom()."&nom=".$each[1]->getNom();
+            ?>
+            <a href="<?= $lien ?>" class="btn btn-primary"><?= $each[1]->getPrenom()." ".$each[1]->getNom(); ?></a>
             </div>
         </div>
     <?php endforeach; ?>

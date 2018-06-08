@@ -9,6 +9,7 @@ class Auteurs
     private $prenom;
     private $siecle;
     private $image;
+    private $audio;
 
     /**
      * Auteurs constructor.
@@ -18,13 +19,14 @@ class Auteurs
      * @param $siecle
      * @param $image
      */
-    public function __construct($siecle, $prenom, $nom, $image, $idauteur="")
+    public function __construct($siecle, $prenom, $nom, $image, $audio, $idauteur="")
     {
         ($idauteur != "") ?: $this->idauteur = $idauteur;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->siecle = $siecle;
         $this->image = $image;
+        $this->audio = $audio;
     }
 
 
@@ -108,4 +110,22 @@ class Auteurs
     {
         $this->image = $image;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAudio()
+    {
+        return $this->audio;
+    }
+
+    /**
+     * @param mixed $audio
+     */
+    public function setAudio($audio)
+    {
+        $this->audio = $audio;
+    }
+
+
 }

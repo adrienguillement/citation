@@ -90,6 +90,5 @@ $form->setSubmit("Ajouter");
         </div>
     </div>
 </div>
-    <img src="functions/identicon.php?size=48&hash=e4d909c290d0fb1ca068ffaddf22cbd0" />
 <?php
 include_once("footer.php"); ?>
