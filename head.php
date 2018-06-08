@@ -7,6 +7,7 @@
     <title>Citations</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/mdb.min.css" rel="stylesheet">
     <link rel="icon" href="assets/img/logo.png" />
 
     <script
@@ -16,6 +17,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-company-red">
     <a class="navbar-brand white-navbar" href="#">Citation</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

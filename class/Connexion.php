@@ -18,7 +18,7 @@ class Connexion
      */
     public function __construct()
     {
-        $this->host = 'mysql:host=localhost;dbname=citation';
+        $this->host = 'mysql:host=localhost;dbname=citation;charset=utf8';
         $this->username = 'root';
         $this->password = '';
 

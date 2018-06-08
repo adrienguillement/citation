@@ -39,9 +39,8 @@ div.card {
     color: #FFFFFF !important;
 }
 
-.btn-primary {
-    background-color: #F6911D;
-    border-color: #F6911D;
+a > .btn-primary {
+    background-color: orange !important;
 }
 
 .button_search  {
